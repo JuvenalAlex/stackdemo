@@ -1,4 +1,8 @@
 # stackdemo
+Grupo: Ygor Gabriel e Juvenal Alex
+
+Iniciando swarm:
+docker swarm init
 Iniciando serviço no seu swarm:
 docker service create --name registry --publish published=5000,target=5000 registry:2
 
