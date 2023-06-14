@@ -1,5 +1,5 @@
 # stackdemo
-Iniciando serviço no seu exame:
+Iniciando serviço no seu swarm:
 docker service create --name registry --publish published=5000,target=5000 registry:2
 
 Verificando  status:
@@ -22,4 +22,18 @@ curl http://localhost:8000
 
 Desligue o aplicativo com:
  docker-compose down --volumes
- 
+
+ Enviar a imagem para o serviço:
+ docker-compose push
+
+Deploy dos arquivos para os integrantes do swarm:
+  docker stack deploy --compose-file docker-compose.yml stackdemo
+  
+Verificar se os serviços estão corretos:
+  docker stack services stackdemo
+  
+Teste na máquina leader:
+    curl http://localhost:8000
+
+Teste nas máquinas workers:
+ curl http://address-of-other-node:8000
